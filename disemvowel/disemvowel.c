@@ -1,5 +1,5 @@
 #include <stdlib.h>
-
+#include <string.h>
 #include "disemvowel.h"
 
 int check_vowel(char);
@@ -23,16 +23,19 @@ int check_vowel(char c)
   }
 }
 
-int i, j = 0;
-char t[100];
 
 char *disemvowel(char *str) {
+
+	int i, j = 0;
+        char *t = (char*) calloc((strlen(str) + 1), sizeof (char));
 
 	for(i = 0; str[i] != '\0'; i++) {
 		if(check_vowel(str[i]) == 0) {
 			t[j] = str[i];
 			j++;
-		}
-	} t[j] = '\0';	
-  return  t;
+		} 
+	} 
+	t[j] = '\0';
+
+  	return t;
 }
