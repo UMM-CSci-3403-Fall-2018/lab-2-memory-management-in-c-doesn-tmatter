@@ -21,13 +21,13 @@ TEST(Disemvowel, HandleOnlyVowels) {
 }
 
 TEST(Disemvowel, HandleMorrisMinnesota) {
-  char *result = disemvowel((char*) "Morris, Minnesota")
+  char *result = disemvowel((char*) "Morris, Minnesota");
   ASSERT_STREQ("Mrrs, Mnnst", result);
   free(result);
 }
 
 TEST(Disemvowel, HandlePunctuation) {
-  char *result = disemvowel((char*) "An (Unexplained) Elephant!")
+  char *result = disemvowel((char*) "An (Unexplained) Elephant!");
   ASSERT_STREQ("n (nxplnd) lphnt!", result);
   free(result);
 }
@@ -47,11 +47,10 @@ TEST(Disemvowel, HandleLongString) {
   }
   str[size-1] = '\0';
 
-  char *result = disemvowel(str);
+  char *result = disemvowel((char*)str);
   ASSERT_STREQ("xyz", result);
-
-  free(str);
   free(result);
+  free(str);
 }
 
 int main(int argc, char *argv[]) {
